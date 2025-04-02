@@ -1,6 +1,10 @@
 "use client";
+
+import type React from "react";
+
+import { useRef, useState } from "react";
 import type { Todo } from "@/types/todo";
-import { XCircle } from "lucide-react";
+import Image from "next/image";
 
 interface TodoItemProps {
   todo: Todo;
@@ -19,13 +23,48 @@ export default function TodoItem({
   moveTodo,
   theme,
 }: TodoItemProps) {
+  const [isDragging, setIsDragging] = useState(false);
+  const itemRef = useRef<HTMLLIElement>(null);
+
+  const handleDragStart = (e: React.DragEvent<HTMLLIElement>) => {
+    setIsDragging(true);
+    e.dataTransfer.setData("text/plain", index.toString());
+    // For better drag preview
+    if (e.dataTransfer.setDragImage && itemRef.current) {
+      e.dataTransfer.setDragImage(itemRef.current, 0, 0);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLLIElement>) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLLIElement>) => {
+    e.preventDefault();
+    const dragIndex = Number.parseInt(e.dataTransfer.getData("text/plain"), 10);
+    if (dragIndex !== index) {
+      moveTodo(dragIndex, index);
+    }
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
+
   return (
     <li
+      ref={itemRef}
+      draggable
+      onDragStart={handleDragStart}
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+      onDragEnd={handleDragEnd}
       className={`group flex items-center px-5 py-4 border-b ${
         theme === "dark"
           ? "border-very-dark-grayish-blue-2 bg-very-dark-desaturated-blue text-light-grayish-blue-dark"
           : "border-light-grayish-blue bg-white text-very-dark-grayish-blue"
-      }`}
+      } ${isDragging ? "opacity-50" : "opacity-100"} cursor-move`}
     >
       <button
         onClick={() => toggleTodo(todo.id)}
@@ -38,14 +77,9 @@ export default function TodoItem({
         }`}
       >
         {todo.completed && (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="11"
-            height="9"
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          >
-            <path fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6" />
-          </svg>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Image src="/images/icon-check.svg" alt="Checkmark" width={11} height={9} />
+          </div>
         )}
       </button>
 
@@ -66,12 +100,15 @@ export default function TodoItem({
         className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
         aria-label="Delete todo"
       >
-        <XCircle
-          size={18}
+        <Image
+          src="/images/icon-cross.svg"
+          alt="Delete"
+          width={18}
+          height={18}
           className={`${
             theme === "dark"
-              ? "text-very-dark-grayish-blue-1 hover:text-light-grayish-blue-hover"
-              : "text-light-grayish-blue hover:text-very-dark-grayish-blue"
+              ? "brightness-75 hover:brightness-100"
+              : "brightness-100 hover:brightness-75"
           }`}
         />
       </button>
