@@ -13,7 +13,7 @@ A responsive Todo application built with **Next.js**, **TypeScript**, **Tailwind
 2. **Install dependencies and run the development server**
 
    ```shell
-   npm install --legacy-peer-deps
+   npm install or npm install --legacy-peer-deps
    npm run dev
    ```
 
