@@ -14,6 +14,9 @@ const josefinSans = Josefin_Sans({
 export const metadata: Metadata = {
   title: "Todo App",
   description: "A Todo application built with Next.js, TypeScript, Tailwind CSS, and Zustand",
+  icons: {
+    icon: "/images/favicon-32x32.png",
+  },
 };
 
 export default function RootLayout({
