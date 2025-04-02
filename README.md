@@ -17,9 +17,9 @@ A responsive Todo application built with **Next.js**, **TypeScript**, **Tailwind
    npm run dev
    ```
 
-<!-- ## Demo -->
+## Demo -->
 
-<!-- You can view a live demo [here](https://finance-portal-persada.vercel.app/). -->
+You can view a live demo [here](https://todo-apps-persada.vercel.app/).
 
 <!-- ## Project Structure
 
