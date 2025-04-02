@@ -18,10 +18,71 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
+  font-family: "Josefin Sans", sans-serif;
+}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 235 19% 35%;
+    --card: 0 0% 100%;
+    --card-foreground: 235 19% 35%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 235 19% 35%;
+    --primary: 220 98% 61%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 236 33% 92%;
+    --secondary-foreground: 235 19% 35%;
+    --muted: 233 11% 84%;
+    --muted-foreground: 236 9% 61%;
+    --accent: 236 33% 92%;
+    --accent-foreground: 235 19% 35%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 233 11% 84%;
+    --input: 233 11% 84%;
+    --ring: 220 98% 61%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 235 21% 11%;
+    --foreground: 234 39% 85%;
+    --card: 235 24% 19%;
+    --card-foreground: 234 39% 85%;
+    --popover: 235 24% 19%;
+    --popover-foreground: 234 39% 85%;
+    --primary: 220 98% 61%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 237 14% 26%;
+    --secondary-foreground: 234 39% 85%;
+    --muted: 237 14% 26%;
+    --muted-foreground: 234 11% 52%;
+    --accent: 233 14% 35%;
+    --accent-foreground: 234 39% 85%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 237 14% 26%;
+    --input: 237 14% 26%;
+    --ring: 220 98% 61%;
+  }
+}
+
+@layer base {
+  * {
+    /* @apply border-border; */
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  font-size: 18px;
 }
