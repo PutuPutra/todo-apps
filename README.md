@@ -21,17 +21,6 @@ A responsive Todo application built with **Next.js**, **TypeScript**, **Tailwind
 
 You can view a live demo [here](https://todo-apps-persada.vercel.app/).
 
-<!-- ## Project Structure
-
-- **src/app/layout.tsx:** Defines the root layout of the application.
-- **src/app/page.tsx:** The main page of the application.
-- **src/app/dashboard/page.tsx:** The dashboard page, accessible after login.
-- **src/actions/auth.ts:** Contains authentication-related actions (login, logout, checkAuth).
-- **src/actions/transactions.ts:** Contains actions to fetch transactions.
-- **src/components:** Contains various UI components used in the application.
-- **src/middleware/index.ts:** Middleware for handling authentication and route protection.
-- **src/types/transaction.ts:** Type definitions for transactions. -->
-
 ## Features
 
 - **Add Todos:** Create new tasks to manage your daily activities.
