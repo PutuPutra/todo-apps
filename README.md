@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Todo Apps
 
-## Getting Started
+A responsive Todo application built with **Next.js**, **TypeScript**, **Tailwind CSS**, and **Zustand**. This app allows users to manage their tasks with features like filtering, drag-and-drop reordering, and theme toggling.
 
-First, run the development server:
+## Run Locally
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the repository**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```shell
+   git clone https://github.com/PutuPutra/todo-apps.git
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Install dependencies and run the development server**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```shell
+   npm install --legacy-peer-deps
+   npm run dev
+   ```
 
-## Learn More
+## Demo
 
-To learn more about Next.js, take a look at the following resources:
+You can view a live demo [here](https://finance-portal-persada.vercel.app/).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<!-- ## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **src/app/layout.tsx:** Defines the root layout of the application.
+- **src/app/page.tsx:** The main page of the application.
+- **src/app/dashboard/page.tsx:** The dashboard page, accessible after login.
+- **src/actions/auth.ts:** Contains authentication-related actions (login, logout, checkAuth).
+- **src/actions/transactions.ts:** Contains actions to fetch transactions.
+- **src/components:** Contains various UI components used in the application.
+- **src/middleware/index.ts:** Middleware for handling authentication and route protection.
+- **src/types/transaction.ts:** Type definitions for transactions. -->
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Add Todos:** Create new tasks to manage your daily activities.
+- **Mark as Completed:** Mark tasks as completed or uncompleted.
+- **Delete Todos:** Remove tasks from the list.
+- **Filter Todos:** Filter tasks by "All", "Active", or "Completed".
+- **Drag and Drop:** Reorder tasks using drag-and-drop functionality.
+- **Dark/Light Theme Toggle:** Switch between dark and light themes.
+- **Responsive Design:** Optimized for both desktop and mobile devices.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contact Developer
+
+For any inquiries, please email: [putupersada@gmail.com](mailto:putupersada@gmail.com)
